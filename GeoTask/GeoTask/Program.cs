@@ -47,11 +47,13 @@ namespace GeoTask
         }
         static void Task1()
         {
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("Решение прямой геодезической задачи в разработке");
             Console.ReadKey();
         }
         static void Task2()
         {
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("Решение обратной геодезической задачи в разработке");
             Console.ReadKey();
         }
