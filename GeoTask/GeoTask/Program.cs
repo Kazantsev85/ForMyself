@@ -48,7 +48,7 @@ namespace GeoTask
         static void Task1()
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("Решение прямой геодезической задачи в разработке");
+            FirstTaskMenu();
             Console.ReadKey();
         }
         static void Task2()
@@ -63,18 +63,48 @@ namespace GeoTask
             Console.ReadKey();
             Console.Clear();
         }
-        static int InputInt() // защита от дурака
+        static double InputDouble() // защита от дурака
         {
-            int x;
+            double x;
             string s;
             bool flug;
             do
             {
                 s = Console.ReadLine();
-                flug = int.TryParse(s, out x);
+                flug = double.TryParse(s, out x);
                 if (!flug) Console.WriteLine("Error");
             } while (!flug);
             return x;
+        }
+        static double InputDoubleAngl() // защита от дурака 
+        {
+            double x;            
+            bool flug;
+            do
+            {
+                 x = InputDouble();
+                flug = x >= 0 & x < 360;
+                if (!flug) Console.WriteLine("Error");
+            }while(!flug);
+            return x;
+        }
+        static void FirstTaskMenu()
+        {
+            Console.WriteLine("Enter Easting");
+            double Y = InputDouble();
+            Console.WriteLine("Enter Nothing");
+            double X = InputDouble();
+            Console.WriteLine("Enter Direction");
+            double Da = InputDoubleAngl();
+            Console.WriteLine("Enter Distance");
+            double L = InputDouble();
+
+            //Point A = new Point(X, Y);
+            //Point B;
+            //B = GEOtask.FirstTask(A, Da, L);
+            //Console.WriteLine($"{B.x},{B.y}");
+            Console.WriteLine($"Данные введены: Easting {Y}, Nothing {X}, Direction {Da}, Distance {L}");
+            Console.ReadKey();
         }
     }
 }
