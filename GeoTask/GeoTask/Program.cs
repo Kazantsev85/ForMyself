@@ -24,7 +24,7 @@ namespace GeoTask
                         break;
                     case "2":
                         Task2();
-                        break;                    
+                        break;
                     case "0":
                         Console.WriteLine("До свидания!");
                         Console.ReadKey();
@@ -62,6 +62,19 @@ namespace GeoTask
             Console.WriteLine("Неверно!");
             Console.ReadKey();
             Console.Clear();
+        }
+        static int InputInt() // защита от дурака
+        {
+            int x;
+            string s;
+            bool flug;
+            do
+            {
+                s = Console.ReadLine();
+                flug = int.TryParse(s, out x);
+                if (!flug) Console.WriteLine("Error");
+            } while (!flug);
+            return x;
         }
     }
 }
