@@ -48,7 +48,7 @@ namespace GeoTask
         static void Task1()
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("Решение прямой геодезической задачи в разработке");
+            FirstTaskMenu();
             Console.ReadKey();
         }
         static void Task2()
@@ -63,15 +63,15 @@ namespace GeoTask
             Console.ReadKey();
             Console.Clear();
         }
-        static int InputInt() // защита от дурака
+        static double InputDouble() // защита от дурака
         {
-            int x;
+            double x;
             string s;
             bool flug;
             do
             {
                 s = Console.ReadLine();
-                flug = int.TryParse(s, out x);
+                flug = double.TryParse(s, out x);
                 if (!flug) Console.WriteLine("Error");
             } while (!flug);
             return x;
