@@ -54,7 +54,7 @@ namespace GeoTask
         static void Task2()
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("Решение обратной геодезической задачи в разработке");
+            SecondTaskMenu();
             Console.ReadKey();
         }
         static void Default()
@@ -98,14 +98,31 @@ namespace GeoTask
             double Da = InputDoubleAngl();
             Console.WriteLine("Enter Distance");
             double L = InputDouble();
-
-            //Console.WriteLine($"Данные введены: Easting {Y}, Nothing {X}, Direction {Da}, Distance {L}");
-
+                        
             Point A = new Point(X, Y);            
             Point B = GEOTask.FirstTask(A, Da, L);
             Console.WriteLine("Координаты второй точки:");
             Console.WriteLine($"Nothing: {B.x:f2}; Easting: {B.y:f2}");
             
+            Console.ReadKey();
+        }
+        static void SecondTaskMenu()
+        {
+            Console.WriteLine("Enter Easting A");
+            double Y1 = InputDouble();
+            Console.WriteLine("Enter Nothing A");
+            double X1 = InputDouble();
+            Console.WriteLine("Enter Easting B");
+            double Y2 = InputDouble();
+            Console.WriteLine("Enter Nothing B");
+            double X2 = InputDouble();
+
+            Point A = new Point(X1, Y1);
+            Point B = new Point(X2, Y2);
+            Shift S = GEOTask.SecondTask(A, B);
+            Console.WriteLine("Координаты второй точки:");
+            Console.WriteLine($"Дирекционный угол: {S.d:f2}; Дистанция: {S.l:f2}");
+
             Console.ReadKey();
         }
     }
