@@ -99,11 +99,12 @@ namespace GeoTask
             Console.WriteLine("Enter Distance");
             double L = InputDouble();
 
-            Console.WriteLine($"Данные введены: Easting {Y}, Nothing {X}, Direction {Da}, Distance {L}");
+            //Console.WriteLine($"Данные введены: Easting {Y}, Nothing {X}, Direction {Da}, Distance {L}");
 
             Point A = new Point(X, Y);            
             Point B = GEOTask.FirstTask(A, Da, L);
-            Console.WriteLine($"{B.x},{B.y}");
+            Console.WriteLine("Координаты второй точки:");
+            Console.WriteLine($"Nothing: {B.x:f2}; Easting: {B.y:f2}");
             
             Console.ReadKey();
         }
