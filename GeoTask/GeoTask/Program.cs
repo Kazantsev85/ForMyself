@@ -10,7 +10,7 @@ namespace GeoTask
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Решение прямых и обратных геодезических задач");
+            Console.WriteLine("Геокалькулятор");
             Console.ReadKey();
             string m;
             do
@@ -24,6 +24,9 @@ namespace GeoTask
                         break;
                     case "2":
                         Task2();
+                        break;
+                    case "3":
+                        Task3();
                         break;
                     case "0":
                         Console.WriteLine("До свидания!");
@@ -40,7 +43,9 @@ namespace GeoTask
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Выберите задачу:");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Нажите 1 для решения прямой геодезической задачи и 2 для решения обратной геодезической задачи");
+            Console.WriteLine("Для решения прямой геодезической задачи нажите:........................1");
+            Console.WriteLine("Для решения обратной геодезической задачи нажите:......................2");
+            Console.WriteLine("Для пересчета географических координат в плоские прямоугольные нажмите:3");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Выход: 0");
             Console.ForegroundColor = ConsoleColor.White;
@@ -57,13 +62,19 @@ namespace GeoTask
             SecondTaskMenu();
             Console.ReadKey();
         }
+        static void Task3()
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            LatLonToXY.LLToXY();
+            Console.ReadKey();
+        }
         static void Default()
         {
             Console.WriteLine("Неверно!");
             Console.ReadKey();
             Console.Clear();
         }
-        static double InputDouble() // защита от дурака
+        public static double InputDouble() // защита от дурака
         {
             double x;
             string s;
@@ -76,16 +87,29 @@ namespace GeoTask
             } while (!flug);
             return x;
         }
-        static double InputDoubleAngl() // защита от дурака 
+        public static int InputInt() // защита от дурака
         {
-            double x;            
+            int x;
+            string s;
             bool flug;
             do
             {
-                 x = InputDouble();
+                s = Console.ReadLine();
+                flug = int.TryParse(s, out x);
+                if (!flug) Console.WriteLine("Error");
+            } while (!flug);
+            return x;
+        }
+        static double InputDoubleAngl() // защита от дурака 
+        {
+            double x;
+            bool flug;
+            do
+            {
+                x = InputDouble();
                 flug = x >= 0 & x < 360;
                 if (!flug) Console.WriteLine("Error");
-            }while(!flug);
+            } while (!flug);
             return x;
         }
         static void FirstTaskMenu()
@@ -98,12 +122,12 @@ namespace GeoTask
             double Da = InputDoubleAngl();
             Console.WriteLine("Enter Distance");
             double L = InputDouble();
-                        
-            Point A = new Point(X, Y);            
+
+            Point A = new Point(X, Y);
             Point B = GEOTask.FirstTask(A, Da, L);
             Console.WriteLine("Координаты второй точки:");
             Console.WriteLine($"Nothing: {B.x:f2}; Easting: {B.y:f2}");
-            
+
             Console.ReadKey();
         }
         static void SecondTaskMenu()
@@ -125,5 +149,6 @@ namespace GeoTask
 
             Console.ReadKey();
         }
+        
     }
 }
