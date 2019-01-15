@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GeoTask
 {
-    class Program
+   public class Program
     {
         static void Main(string[] args)
         {
+            Application.Run(new GeoTasks());
             Console.WriteLine("Геокалькулятор");
             Console.ReadKey();
             string m;
@@ -129,6 +134,20 @@ namespace GeoTask
             Console.WriteLine($"Nothing: {B.x:f2}; Easting: {B.y:f2}");
 
             Console.ReadKey();
+        }
+        static public Point FirstTaskMenuInterface(double x, double y, double d, double l)
+        {            
+            double Y = y;            
+            double X = x;            
+            double Da = d;
+            double L = l;
+
+            Point A = new Point(X, Y);
+            Point B = GEOTask.FirstTask(A, Da, L);
+            //Console.WriteLine("Координаты второй точки:");
+            //Console.WriteLine($"Nothing: {B.x:f2}; Easting: {B.y:f2}");
+            //Console.ReadKey();
+            return (B);
         }
         static void SecondTaskMenu()
         {
