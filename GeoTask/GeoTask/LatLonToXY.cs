@@ -20,7 +20,7 @@ namespace GeoTask
             bool flug;
             do
             {
-                m = Program.InputInt();                
+                m = Functions.InputInt();                
                 flug = m == 1 | m == 2;
                 if (!flug) Console.WriteLine("Error");
             } while (!flug);
