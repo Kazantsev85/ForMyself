@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace GeoTask
 {
-    class Shift
+    public class Shift
     {
         public double d, l;
         public Shift(double a, double b)

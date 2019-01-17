@@ -18,6 +18,6 @@ namespace GeoTask
                 x = a;
                 y = b;
         }
-        
+                        
     }
 }

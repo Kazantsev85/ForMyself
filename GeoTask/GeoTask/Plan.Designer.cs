@@ -5,7 +5,7 @@
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        public System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -34,9 +34,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(702, 541);
+            this.ClientSize = new System.Drawing.Size(478, 444);
             this.Name = "Plan";
             this.Text = "Plan";
+            this.Load += new System.EventHandler(this.Plan_Load);
             this.ResumeLayout(false);
 
         }

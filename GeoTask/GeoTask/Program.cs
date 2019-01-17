@@ -20,7 +20,7 @@ namespace GeoTask
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GeoTasks());
+            Application.Run(new GeoTasks());            
         }
     }
 }
