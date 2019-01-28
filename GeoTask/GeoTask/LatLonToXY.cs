@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GeoTask
 {
@@ -16,7 +20,7 @@ namespace GeoTask
             bool flug;
             do
             {
-                m = Program.InputInt();                
+                m = Functions.InputInt();                
                 flug = m == 1 | m == 2;
                 if (!flug) Console.WriteLine("Error");
             } while (!flug);

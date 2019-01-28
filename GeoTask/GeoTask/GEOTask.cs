@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GeoTask
 {
@@ -27,8 +31,9 @@ namespace GeoTask
 
             public static Point FirstTask(Point A, double Da, double L)
             {
+                //Application.Run(new Plan())
                 double alf = Math.PI * Da / 180;
-                double l = L;
+                double l = L;                
 
                 double dX = Math.Cos(alf) * l;
                 double dY = Math.Sin(alf) * l;
@@ -48,6 +53,7 @@ namespace GeoTask
                 Point B = new Point(0, 0);
                 B.x = A.x + dX;
                 B.y = A.y + dY;
+                
                 return (B);
             }
             public static Shift SecondTask(Point A, Point B)
